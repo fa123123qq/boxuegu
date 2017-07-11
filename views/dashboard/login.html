@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>学IT - 后台管理系统</title>
+    <!--<link rel="stylesheet" href="./assets/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="./assets/font-awesome/css/font-awesome.css">
+    <link rel="stylesheet" href="./assets/nprogress/nprogress.css">
+    <link rel="stylesheet" href="./less/index.css">-->
+    <?php include '/views/common/css.html' ?>
+</head>
+<body>
+    <!-- 登录 -->
+    <div class="login">
+        <div class="login-wrap">
+            <div class="avatar">
+                <img src="/views/public/uploads/monkey.png" class="img-circle" alt="">
+            </div>
+            <form id="formLogin" class="col-md-offset-1 col-md-10">
+                <div class="input-group input-group-lg">
+                    <span class="input-group-addon">
+                        <i class="fa fa-user"></i>
+                    </span>
+                    <input type="text" class="form-control" placeholder="用户名" name="tc_name" value="前端学院">
+                </div>
+                <div class="input-group input-group-lg">
+                    <span class="input-group-addon">
+                        <i class="fa fa-key"></i>
+                    </span>
+                    <input type="password" class="form-control" placeholder="密码" name="tc_pass" value="123456">
+                </div>
+                <button type="submit" class="btn btn-lg btn-primary btn-block">登 录</button>
+            </form>
+        </div>
+    </div>
+    
+    <!--<script src="./assets/jquery/jquery.min.js"></script>
+    <script src="./assets/bootstrap/js/bootstrap.min.js"></script>-->
+    <?php include '/views/common/script.html' ?>
+
+    <script>
+        $('#formLogin').submit(function () {  
+				//序列化表格的数据
+            var data = $(this).serializeArray();
+            $.ajax({
+                url:'/api/login',
+                type:'post',
+                data:data,
+				//这里不能用data
+                success:function(info){
+                    if(info.code == 200){
+                        var infostr = JSON.stringify(info.result);
+                        // console.log(infostr);
+                         $.cookie('tcInfo',infostr);
+					//跳转到index页面
+                       
+                        location.href = 'index';
+                        // alert('登陆成功');
+                    }
+                },
+                error:function(errorInfo){
+                    alert('用户名或密码不对');
+                }
+            })
+            return false;
+        })
+    </script>
+</body>
+</html>
