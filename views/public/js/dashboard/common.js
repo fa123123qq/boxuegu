@@ -37,4 +37,7 @@ define(["jquery","cookie","template"],function ($,cookie,template) {
 	 $(".navs a+ul").prev().on('click',function () { 
 		$(this).next().slideToggle();
 	  })
+
+
+
  })
