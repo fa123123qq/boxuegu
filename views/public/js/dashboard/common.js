@@ -27,7 +27,7 @@ define(["jquery","cookie","template"],function ($,cookie,template) {
 			success:function (info) {  
 				if(info.code == 200){
 					alert('退出成功');
-					location.href = 'login';
+					location.href = '/login';
 				}
 			}
 		})
