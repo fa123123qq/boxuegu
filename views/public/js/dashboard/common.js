@@ -8,6 +8,7 @@
 	// });
 
 define(["jquery","cookie","template"],function ($,cookie,template) { 
+		//登陆的功能
 		if(!$.cookie("PHPSESSID")&&location.pathname!="/login"){
 		location.href = 'login';
 	}
@@ -18,4 +19,17 @@ define(["jquery","cookie","template"],function ($,cookie,template) {
 		var tmphtml =  template("tp_aside_avatar",tcInfo);
 		$(".aside>.profile").html(tmphtml);
 	}
+
+	$("#logoutBtn").on('click',function () { 
+		$.ajax({
+			url:'/api/logout',
+			type:'post',
+			success:function (info) {  
+				if(info.code == 200){
+					alert('退出成功');
+					location.href = 'login';
+				}
+			}
+		})
+	 })
  })
