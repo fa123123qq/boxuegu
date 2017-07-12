@@ -32,4 +32,9 @@ define(["jquery","cookie","template"],function ($,cookie,template) {
 			}
 		})
 	 })
+
+	 //侧边栏的点击显示功能
+	 $(".navs a+ul").prev().on('click',function () { 
+		$(this).next().slideToggle();
+	  })
  })
