@@ -50,10 +50,10 @@ define(['jquery','template',"bootstrap"], function($,template) {
 					that.attr('data-status',res.result.tc_status);
 					if(res.code == 200){
 						// alert('2');
-						 if(res.result.tc_status == 1){
-						 	that.text("启用");
-						 }else{
+						 if(res.result.tc_status == 0){
 						 	that.text("注销");
+						 }else{
+						 	that.text("启用");
 						 }
 					}  
 
