@@ -32,5 +32,34 @@ define(['jquery','template',"bootstrap"], function($,template) {
 		
 	    })
 
+
+		$("#tc_list_body").on('click','a.btnHandle',function (){ 
+			// alert('1');
+			
+			var id =$(this).parent().attr('data-id');
+			 var that = $(this);
+			$.ajax({
+				url:'/api/teacher/handle',
+				type:'post',
+				data:{
+				tc_id:id,
+				tc_status:that.attr('data-status')
+			},
+				success:function (res) {
+					//把服务器返回的数据也修改到data-status属性上
+					that.attr('data-status',res.result.tc_status);
+					if(res.code == 200){
+						// alert('2');
+						 if(res.result.tc_status == 1){
+						 	that.text("启用");
+						 }else{
+						 	that.text("注销");
+						 }
+					}  
+
+				}
+			})
+		 })
+
    	  
 })
