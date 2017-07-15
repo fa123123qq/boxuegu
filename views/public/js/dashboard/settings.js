@@ -1,9 +1,6 @@
-define([
-        'jquery',
-        'template'
-    // 'ckeditor',
-    // 'uploadify'
-], function($,template) {
+define(['jquery','template','uploadify'
+  // 'ckeditor',
+], function ($, template, uploadify) {
   // ,CKEDITOR,uploadify
   //  CKEDITOR.replace('introduce',{
   //      toolbarGroups:[
@@ -15,43 +12,45 @@ define([
   //      ]
   //请求个人更新的数据
   $.ajax({
-    url:'/api/teacher/profile',
-    type:'get',
-    success:function (res){
-      if(res.code==200){
-        console.log(res);
-        
-        var htmlStr = template('settings_tpl',res.result);
-
+    url: '/api/teacher/profile',
+    type: 'get',
+    success: function (res) {
+      if (res.code == 200) {
+        // console.log(res);
+        var htmlStr = template('settings_tpl', res.result);
         $('.settings').html(htmlStr);
+
+        //上传图片,因为模板渲染完后才能显示当前页面
+        $("#upfile").uploadify({
+          'swf': '/views/public/assets/uploadify/uploadify.swf', //引入flash文件
+          'uploader': '/api/uploader/avatar', //要提交的目标接口
+          'buttonText':'',
+          'width': 120,
+          'height': 120,
+          'fileObjName':'tc_avatar',
+          onUploadSuccess:function (file, data, response) {
+            console.log(data); 
+             $('.preview img').attr('src', JSON.parse(data).result.path);
+          }
+        });
+
       }
     }
-})
+  })
 
 
 
 
- });
+});
 
-   //上传图片
-  //  $("#upfile").uploadify({
-  //      swf:'/views/public/assets/uploadify/uploadify.swf',
-  //      uploader:'/api/uploader/avatar',
-  //      buttonText:'',
-  //      weight:120,
-  //      height:120,
-  //      fileObjName:'tc_avatar',
-  //      onUploadSuccess:function (file,data,response) { 
-  //          $('#avatar_preview').attr('src',JSON.parse(data.result.path));
-  //       }
-  //  })
+
 
 
 //     $('#region').region({
 //       url:'/views/public/assets/jquery-region/region.json'
 //     })
 
-  
+
 
 
 // $('.settings').on('click','#saveBtn',function (){

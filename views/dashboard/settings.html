@@ -10,6 +10,7 @@
     <link rel="stylesheet" href="./less/index.css">-->
 
     <?php include '/views/common/css.html' ?>
+    <!--<link rel="stylesheet" href="/views/assets/uploadify/uploadify.css" >-->
 </head>
 
 <body>
@@ -44,7 +45,7 @@
             <div class="form-group">
                 <label for="" class="col-md-3 control-label">头像</label>
                 <div class="col-md-2 preview">
-                    <img src="{{tc_avatar?tc_avatar:'/views/public/images/default.png'}}">
+                    <img id='img_avatar' src="{{tc_avatar?tc_avatar:'/views/public/images/default.png'}}">
                     <input type="file" id="upfile">
                     <div class="cover">
                         <i class="fa fa-upload"></i>
@@ -112,7 +113,7 @@
             <div class="form-group">
                 <label for="" class="col-md-3 control-label">个人介绍</label>
                 <div class="col-md-5 ckeditor">
-                    <textarea name="" rows="15" id="introduce" class="form-control input-sm"></textarea>
+                    <textarea name="tc_introduce" value="{{tc_introduce}}" rows="15" id="introduce" class="form-control input-sm"></textarea>
                 </div>
             </div>
             <div class="form-group">

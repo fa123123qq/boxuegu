@@ -12,8 +12,8 @@
       'form':'assets/jquery-form/jquery.form',
       'datepicker':'assets/bootstrap-datepicker/js/bootstrap-datepicker',
       'datepickerzh':'assets/bootstrap-datepicker/locales/bootstrap-datepicker.zh-CN.min',
-      'ckeditor':'assets/ckeditor/ckeditor',
       'uploadify':'assets/uploadify/jquery.uploadify'
+      // 'ckeditor':'assets/ckeditor/ckeditor'
     },
     shim: { // 设置bootstrap的依赖
       'bootstrap': {
@@ -22,13 +22,14 @@
       'datepickerzh':{
         deps:['jquery']
       },
-      'ckeditor':{
-        exports:'CKEDITOR'
-      },
       'uploadify':{
-        deps:['jquery']
-      }
+      deps:['jquery']
+    }
+      // 'ckeditor':{
+      //   exports:'CKEDITOR'
+      // }
     }
 
   });
+  
 
