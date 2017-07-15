@@ -1,4 +1,5 @@
-define(['jquery', 'template', 'uploadify', 'datepicker', 'datepickerzh', 'region', 'ckeditor'], function ($, template, uploadify, datepicker, datepickerzh, region, CKEDITOR) {
+define(['jquery', 'template', 'uploadify', 'datepicker', 'datepickerzh', 'region', 'ckeditor','form'], 
+function ($, template, uploadify, datepicker, datepickerzh, region, CKEDITOR,form) {
 
   //1请求个人更新的数据
   $.ajax({
@@ -62,11 +63,29 @@ define(['jquery', 'template', 'uploadify', 'datepicker', 'datepickerzh', 'region
 
 
       }
-    }
+    }//success
   })
 
 
 
+
+  $('.settings').on('click','#saveBtn',function (){
+    // 先更新富文本编译器的内容
+      $('#introduce').val(CKEDITOR.instances.introduce.getData());//编辑器的一个bug，先获取一下输入的内容
+          $('form').ajaxSubmit({
+            url:'/api/teacher/modify',
+            type:'post',
+            success:function (res){
+                  if(res.code == 200){
+                       alert('提交了哦!');
+                        location.href = '/settings';
+
+                  }
+                       
+            }
+          });
+          return false;// 阻止默认行为
+    })
 
 });
 
@@ -77,15 +96,4 @@ define(['jquery', 'template', 'uploadify', 'datepicker', 'datepickerzh', 'region
 
 
 
-// $('.settings').on('click','#saveBtn',function (){
-//     $('[name=ckeditor]').val(CKEDITOR.instances.introduction.getData());//编辑器的一个bug，先获取一下输入的内容
-//          $('form').ajaxSubmit({
-//            url:'/api/teacher/modify',
-//            type:'post',
-//            success:function (data){
-//                   console.log(data);
-//            }
-//          });
-//          return false;// 阻止默认行为
-//   })
-// })
+
