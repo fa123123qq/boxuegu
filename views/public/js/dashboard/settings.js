@@ -1,6 +1,6 @@
-define(['jquery','template','uploadify'
+define(['jquery', 'template', 'uploadify', 'datepicker', 'datepickerzh'
   // 'ckeditor',
-], function ($, template, uploadify) {
+], function ($, template, uploadify, datepicker, datepickerzh) {
   // ,CKEDITOR,uploadify
   //  CKEDITOR.replace('introduce',{
   //      toolbarGroups:[
@@ -24,15 +24,21 @@ define(['jquery','template','uploadify'
         $("#upfile").uploadify({
           'swf': '/views/public/assets/uploadify/uploadify.swf', //引入flash文件
           'uploader': '/api/uploader/avatar', //要提交的目标接口
-          'buttonText':'',
+          'buttonText': '',
           'width': 120,
           'height': 120,
-          'fileObjName':'tc_avatar',
-          onUploadSuccess:function (file, data, response) {
-            console.log(data); 
-             $('.preview img').attr('src', JSON.parse(data).result.path);
+          'fileObjName': 'tc_avatar',
+          onUploadSuccess: function (file, data, response) {
+            console.log(data);
+            $('.preview img').attr('src', JSON.parse(data).result.path);
           }
         });
+
+        //添加了日期的中文插件
+        $('input[name=tc_birthday],input[name=tc_join_date]').datepicker({
+          format: 'yyyy-mm-dd',
+          language: 'zh-CN'
+        })
 
       }
     }
