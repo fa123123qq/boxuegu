@@ -1,6 +1,6 @@
-define(['jquery', 'template', 'uploadify', 'datepicker', 'datepickerzh'
+define(['jquery', 'template', 'uploadify', 'datepicker', 'datepickerzh','region'
   // 'ckeditor',
-], function ($, template, uploadify, datepicker, datepickerzh) {
+], function ($, template, uploadify, datepicker, datepickerzh,region) {
   // ,CKEDITOR,uploadify
   //  CKEDITOR.replace('introduce',{
   //      toolbarGroups:[
@@ -40,6 +40,12 @@ define(['jquery', 'template', 'uploadify', 'datepicker', 'datepickerzh'
           language: 'zh-CN'
         })
 
+     $('#region').region({
+      url:'/views/public/assets/jquery-region/region.json'
+    })
+
+        
+
       }
     }
   })
@@ -52,9 +58,6 @@ define(['jquery', 'template', 'uploadify', 'datepicker', 'datepickerzh'
 
 
 
-//     $('#region').region({
-//       url:'/views/public/assets/jquery-region/region.json'
-//     })
 
 
 
