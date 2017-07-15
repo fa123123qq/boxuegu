@@ -1,16 +1,6 @@
-define(['jquery', 'template', 'uploadify', 'datepicker', 'datepickerzh','region'
-  // 'ckeditor',
-], function ($, template, uploadify, datepicker, datepickerzh,region) {
-  // ,CKEDITOR,uploadify
-  //  CKEDITOR.replace('introduce',{
-  //      toolbarGroups:[
-  //         { name: 'clipboard',   groups: [ 'clipboard', 'undo' ] },
-  //       { name: 'links' },
-  //       { name: 'document',    groups: [ 'mode', 'document', 'doctools' ] },
-  //       { name: 'basicstyles', groups: [ 'basicstyles', 'cleanup' ] },
-  //       { name: 'paragraph',   groups: [ 'list', 'indent', 'blocks', 'align', 'bidi' ] }
-  //      ]
-  //请求个人更新的数据
+define(['jquery', 'template', 'uploadify', 'datepicker', 'datepickerzh', 'region', 'ckeditor'], function ($, template, uploadify, datepicker, datepickerzh, region, CKEDITOR) {
+
+  //1请求个人更新的数据
   $.ajax({
     url: '/api/teacher/profile',
     type: 'get',
@@ -20,7 +10,7 @@ define(['jquery', 'template', 'uploadify', 'datepicker', 'datepickerzh','region'
         var htmlStr = template('settings_tpl', res.result);
         $('.settings').html(htmlStr);
 
-        //上传图片,因为模板渲染完后才能显示当前页面
+        //2上传图片,因为模板渲染完后才能显示当前页面
         $("#upfile").uploadify({
           'swf': '/views/public/assets/uploadify/uploadify.swf', //引入flash文件
           'uploader': '/api/uploader/avatar', //要提交的目标接口
@@ -34,17 +24,42 @@ define(['jquery', 'template', 'uploadify', 'datepicker', 'datepickerzh','region'
           }
         });
 
-        //添加了日期的中文插件
+        //3添加了日期的中文插件
         $('input[name=tc_birthday],input[name=tc_join_date]').datepicker({
           format: 'yyyy-mm-dd',
           language: 'zh-CN'
         })
 
-     $('#region').region({
-      url:'/views/public/assets/jquery-region/region.json'
-    })
+        // 4,省市级联动插件
+        $('#region').region({
+          url: '/views/public/assets/jquery-region/region.json'
+        })
 
-        
+        //富文本编译器
+        CKEDITOR.replace('introduce', {
+          toolbarGroups: [{
+              name: 'clipboard',
+              groups: ['clipboard', 'undo']
+            },
+            {
+              name: 'links'
+            },
+            {
+              name: 'document',
+              groups: ['mode', 'document', 'doctools']
+            },
+            {
+              name: 'basicstyles',
+              groups: ['basicstyles', 'cleanup']
+            },
+            {
+              name: 'paragraph',
+              groups: ['list', 'indent', 'blocks', 'align', 'bidi']
+            }
+          ]
+        });
+
+
 
       }
     }
