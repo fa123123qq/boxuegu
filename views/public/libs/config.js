@@ -14,7 +14,8 @@
       'datepickerzh':'assets/bootstrap-datepicker/locales/bootstrap-datepicker.zh-CN.min',
       'uploadify':'assets/uploadify/jquery.uploadify',
       'region':'assets/jquery-region/jquery.region',
-       'ckeditor':'assets/ckeditor/ckeditor'
+       'ckeditor':'assets/ckeditor/ckeditor',
+       'utils':'js/utils/utils'
     },
     shim: { // 设置bootstrap的依赖
       'bootstrap': {

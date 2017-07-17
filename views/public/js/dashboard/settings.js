@@ -79,9 +79,7 @@ function ($, template, uploadify, datepicker, datepickerzh, region, CKEDITOR,for
                   if(res.code == 200){
                        alert('提交了哦!');
                         location.href = '/settings';
-
-                  }
-                       
+                  }       
             }
           });
           return false;// 阻止默认行为

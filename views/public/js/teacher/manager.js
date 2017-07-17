@@ -1,27 +1,28 @@
-define(['jquery', 'template', 'form', 'datepicker','datepickerzh'], function ($, template, form, dp,datepickerzh) {
+define(['utils','jquery', 'template', 'form', 'datepicker','datepickerzh'], function (utils,$, template, form, dp,datepickerzh) {
     //获取到url地址域名后面的数据
-    var search = location.search;
-    //把/去掉
-    search = search.slice(1);
-    // 用&号切割成数组
-    var searchArr = search.split('&');
-    //    console.log(searchArr);
-    //遍历数组并添加到新对象中
-    var obj = {};
-    for (var i = 0; i < searchArr.length; i++) {
-        var temp = searchArr[i].split('=');
-        obj[temp[0]] = temp[1];
-    }
+    // var search = location.search;
+    // //把/去掉
+    // search = search.slice(1);
+    // // 用&号切割成数组
+    // var searchArr = search.split('&');
+    // //    console.log(searchArr);
+    // //遍历数组并添加到新对象中
+    // var obj = {};
+    // for (var i = 0; i < searchArr.length; i++) {
+    //     var temp = searchArr[i].split('=');
+    //     obj[temp[0]] = temp[1];
+    // }
     //    console.log(obj);
     //这里是后面根据id来渲染编辑还是添加讲师
-    var id = obj.tc_id;
+    // var id = obj.tc_id;
+    var id = utils.queryString().tc_id;
     if (id) {
         //根据当前的id给服务器发送ajax请求,获取当前id下面的信息
         $.ajax({
             url: '/api/teacher/edit',
             type: 'get',
             data: {
-                tc_id: obj.tc_id
+                tc_id: id
             },
             success: function (res) {
                 if (res.code == 200) {

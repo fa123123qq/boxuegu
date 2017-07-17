@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <title>学IT - 后台管理系统</title>
@@ -9,15 +10,16 @@
     <link rel="stylesheet" href="./less/index.css">-->
     <?php include '/views/common/css.html'?>
 </head>
+
 <body>
-    
+
     <!-- 侧边栏 -->
     <?php include '/views/common/aside.html' ?>
     <!-- 主体 -->
     <div class="main">
         <div class="container-fluid">
             <!-- 头部 -->
-          <?php include '/views/common/head.html' ?>
+            <?php include '/views/common/head.html' ?>
             <div class="body course-add">
                 <!-- 面包屑 -->
                 <ol class="breadcrumb">
@@ -31,12 +33,11 @@
                     <form action="" class="form-horizontal col-md-7">
                         <div class="form-group">
                             <label for="" class="col-md-2 control-label">课程标题</label>
-                            <div class="col-md-9">
-                                <input type="text" class="form-control input-sm" placeholder="请填写课程标题">
-                            </div>
+<input type="text" name='cs_name' value='' class="form-control input-sm" placeholder="请填写课程标题">
+
                         </div>
                         <div class="col-md-11">
-                            <a href="./course_add_step1.html" class="btn btn-success btn-sm pull-right">创建课程</a>
+                            <button id="btnCreate" class="btn btn-success btn-sm pull-right">创建课程</button>
                         </div>
                     </form>
                     <div class="extra col-md-3">
@@ -53,5 +54,15 @@
     <script src="./assets/nprogress/nprogress.js"></script>
     <script src="./js/common.js"></script>-->
     <?php include '/views/common/script.html' ?>
+    <!--<script type='text/template' id='add_course'>
+        <div class="col-md-9">
+            
+        </div>
+    </script>-->
+
+    <script>
+        require(['js/course/create']);
+    </script>
 </body>
+
 </html>
