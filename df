@@ -1,0 +1,95 @@
+[33mcommit 3bf27933dcd6c3f9619fe3e040ced3a18ed02686[m
+Author: fa123123qq <suibee001@gmail.com>
+Date:   Mon Jul 17 09:10:59 2017 +0800
+
+    课程管理的课程添加的基本信息和课程图片
+
+[33mcommit 34e3c44fe29a30b26151852da94880bea38aed1c[m
+Author: fa123123qq <suibee001@gmail.com>
+Date:   Sat Jul 15 17:05:35 2017 +0800
+
+    个人中心增加了保存的功能
+
+[33mcommit 4f3acaa18099f918c2b0402aec159c67198f02ad[m
+Author: fa123123qq <suibee001@gmail.com>
+Date:   Sat Jul 15 16:19:26 2017 +0800
+
+    个人中心添加富文本编辑器
+
+[33mcommit db948d7eae1d6252f8428cd37fdd4426c811cf97[m
+Author: fa123123qq <suibee001@gmail.com>
+Date:   Sat Jul 15 15:27:16 2017 +0800
+
+    添加了省市区三级联动插件到个人中心
+
+[33mcommit 035f9c728b86a8d292f20dc35da8b9b10be9e1de[m
+Author: fa123123qq <suibee001@gmail.com>
+Date:   Sat Jul 15 15:08:47 2017 +0800
+
+    个人中心添加了中午的日期插件
+
+[33mcommit ffb16f38a6413988b7b33ab30382f7e159f2d75c[m
+Author: fa123123qq <suibee001@gmail.com>
+Date:   Sat Jul 15 14:57:42 2017 +0800
+
+    添加了图片上传的插件
+
+[33mcommit 3303efb4ff69249518dd94507b0b9a4ecfaf3829[m
+Author: fa123123qq <suibee001@gmail.com>
+Date:   Sat Jul 15 11:06:50 2017 +0800
+
+    更新个人中心页面的基本渲染
+
+[33mcommit 36835b6274ea59d24e616137456ead461d860fe1[m
+Author: fa123123qq <suibee001@gmail.com>
+Date:   Fri Jul 14 18:59:48 2017 +0800
+
+    添加了讲师添加功能和使用的日历插件
+
+[33mcommit e0b25c11039b70d6b34b7c98f00d0cf937f48df1[m
+Author: fa123123qq <suibee001@gmail.com>
+Date:   Fri Jul 14 16:05:43 2017 +0800
+
+    添加了编辑的功能
+
+[33mcommit 7db23189e559f130dccea375ef25df566a26f43a[m
+Author: fa123123qq <suibee001@gmail.com>
+Date:   Fri Jul 14 10:38:13 2017 +0800
+
+    实现启用和注销按钮的功能
+
+[33mcommit 43360eaa4540f70af3d907e37616933b6bec329a[m
+Author: fa123123qq <suibee001@gmail.com>
+Date:   Wed Jul 12 20:49:19 2017 +0800
+
+    增加讲师资料查看功能
+
+[33mcommit a374465b10336123689deb6305f913a833ddc715[m
+Author: fa123123qq <suibee001@gmail.com>
+Date:   Wed Jul 12 18:58:42 2017 +0800
+
+    提取script模块到libs文件夹内和显示教室管理列表信息
+
+[33mcommit 7b743a72b6a45447041c29f061f1d97de707cb7b[m
+Author: fa123123qq <suibee001@gmail.com>
+Date:   Wed Jul 12 15:41:15 2017 +0800
+
+    侧边栏的点击显示和隐藏按钮效果
+
+[33mcommit 7b84178020aa2830c15e5426c52a418a288c14ab[m
+Author: fa123123qq <suibee001@gmail.com>
+Date:   Wed Jul 12 12:22:13 2017 +0800
+
+    新增了退出的功能
+
+[33mcommit 835cd494a6d64846d02c73249d28eb2c1a45b79b[m
+Author: fa123123qq <suibee001@gmail.com>
+Date:   Wed Jul 12 10:45:28 2017 +0800
+
+    将现有文件改造成模块化(common.js和login.js)
+
+[33mcommit 238d94b94226d3b766250fd62987aa67bc017b8b[m
+Author: fa123123qq <suibee001@gmail.com>
+Date:   Tue Jul 11 12:53:51 2017 +0800
+
+    把文件分类和极间路由模式登陆

@@ -15,7 +15,8 @@
       'uploadify':'assets/uploadify/jquery.uploadify',
       'region':'assets/jquery-region/jquery.region',
        'ckeditor':'assets/ckeditor/ckeditor',
-       'utils':'js/utils/utils'
+       'utils':'js/utils/utils',
+       'jcrop':'assets/jquery-jcrop/js/jcrop'
     },
     shim: { // 设置bootstrap的依赖
       'bootstrap': {
@@ -29,6 +30,9 @@
     },
       'ckeditor':{
         exports:'CKEDITOR'
+      },
+      'jcrop':{
+        deps:['jquery']
       }
     }
 
