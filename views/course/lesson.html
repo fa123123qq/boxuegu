@@ -45,7 +45,7 @@
     <script src="./assets/nprogress/nprogress.js"></script>
     <script src="./js/common.js"></script>-->
     <?php include '/views/common/script.html'?>
-    <script type="text/template" id="cs_lesson_tmp">
+    <script type="text/template" id="cs_lesson_tpl">
        <div class="brief">
                         <div class="thumb">
                             <img src="{{cs_cover}}" alt="">
@@ -82,22 +82,22 @@
                         <!-- 标题 -->
                         <div class="title">
                             <h5>课时管理 <small>LESSON MANAGE</small></h5>
-                            <a src="javascript:;" id='addLesson' data-toggle="modal" data-target="#lesson" class="btn btn-success btn-sm pull-right">
+                            <a src="javascript:;" id='addLesson' class="btn btn-success btn-sm pull-right">
                                 <i class="fa fa-plus"></i>
                                 课时
                             </a>
                         </div>
                         <div class="lessons">
                             <ul class="list-unstyled">
-                                {{each lessons as i v }}
+                                {{each lessons as v i }}
                                 <li>
                                     <i class="fa fa-file-video-o"></i>
                                     <span class="order">课时：{{i+1}}</span>
                                     <span class="name">{{v.ct_name}}</span>
                                     <span class="duration">{{v.ct_video_duration}}</span>
                                     <!-- 操作 -->
-                                    <div class="action pull-right">
-                                        <a href="javascript:;" class="btn btn-info btn-xs" data-toggle="modal" data-target="#lesson">编辑</a>
+                                    <div class="action pull-right" data-id="{{v.ct_id}}">
+                                        <a href="javascript:;" id="editBtn" class="btn btn-info btn-xs" >编辑</a>
                                         <a href="javascript:;" class="btn btn-info btn-xs">预览</a>
                                         <a href="javascript:;" class="btn btn-danger btn-xs">删除</a>
                                     </div>
@@ -109,23 +109,25 @@
                     </div>
     </script>
 
+
+<!--模态框的模板-->
     <script type="text/template" id="cs_modal_tpl">
             <div class="modal-header">
                     <button type="button" class="close" data-dismiss="modal">&times;</button>
-                    <h4 class="modal-title">添加课时</h4>
+                    <h4 class="modal-title">{{title}}</h4>
                 </div>
                 <div class="modal-body">
-                    <form action="" class="form-horizontal">
-                        <input type="hidden" name='cs_id' value='{{cs_id}}'>
+                    <form action="{{actionUrl}}" class="form-horizontal">
+                        <input type="hidden" name='ct_id' value='{{ct_id}}'>
                         <div class="form-group">
                             <label for="" class="col-md-2 control-label">标题</label>
                             <div class="col-md-6">
-                                <input type="text" name="cs_name" value="{{cs_name}}" class="form-control input-sm">
+                                <input type="text" name="ct_name" value="{{ct_name}}" class="form-control input-sm">
                             </div>
                             <div class="col-md-2">
                                 <div class="checkbox">
                                     <label>
-                                        <input type="checkbox"> 免费课时
+                                        <input name='ct_is_free' id='ct_is_free' type="checkbox"  {{if ct_is_free==1}}checked{{/if}}> 免费课时
                                     </label>
                                 </div>
                             </div>
@@ -133,7 +135,7 @@
                         <div class="form-group">
                             <label for="" class="col-md-2 control-label">简介</label>
                             <div class="col-md-8">
-                                <textarea name="" rows="5" name="ct_brief" value="{{ct_brief}}" class="form-control input-sm"></textarea>
+                                <textarea  rows="5" name="ct_brief" id="ct_brief"  class="form-control input-sm">{{ct_brief}}</textarea>
                             </div>
                         </div>
                         <div class="form-group">
@@ -169,7 +171,7 @@
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-link btn-sm" data-dismiss="modal">取消</button>
-                    <button type="button" class="btn btn-success btn-sm saveBtn"> 添 加 </button>
+                    <button type="button" id='saveBtn' class="btn btn-success btn-sm ">{{savaBtnText}} </button>
                 </div>
     </script>
 
